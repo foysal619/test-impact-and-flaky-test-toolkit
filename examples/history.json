@@ -1,0 +1,5 @@
+[
+  { "test": "checkout retries payment", "passed": 16, "failed": 4 },
+  { "test": "login redirects to dashboard", "passed": 29, "failed": 1 },
+  { "test": "profile loads", "passed": 5, "failed": 1 }
+]

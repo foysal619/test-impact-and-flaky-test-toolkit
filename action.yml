@@ -1,0 +1,26 @@
+name: Test impact and flaky-test decision
+description: Select impacted quality suites, balance shards, and expose flaky-test release evidence.
+inputs:
+  changed_files:
+    description: Comma- or newline-separated changed files.
+    required: true
+  config:
+    description: Path to the quality ownership map.
+    required: true
+  durations:
+    description: Optional path to historical group durations.
+    required: false
+  history:
+    description: Optional path to flaky-test history.
+    required: false
+  shards:
+    description: Number of balanced shards.
+    default: "1"
+outputs:
+  matrix:
+    description: GitHub Actions matrix containing selected commands.
+  decision:
+    description: Complete JSON quality decision.
+runs:
+  using: node24
+  main: dist/index.js

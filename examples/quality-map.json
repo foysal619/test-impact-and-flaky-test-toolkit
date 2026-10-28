@@ -1,0 +1,10 @@
+{
+  "globalPatterns": ["package.json", ".github/workflows/**", "test-infrastructure/**"],
+  "flakyPolicy": { "minimumRuns": 10, "quarantineThreshold": 0.2, "releaseThreshold": 0.05 },
+  "groups": [
+    { "id": "api-contract", "command": "npm run test:api", "owns": ["src/api/**", "src/shared/**"] },
+    { "id": "web-smoke", "command": "npm run test:web:smoke", "owns": ["src/web/**", "src/shared/**"] },
+    { "id": "mobile-smoke", "command": "npm run test:mobile", "owns": ["src/mobile/**", "src/shared/**"] },
+    { "id": "performance-smoke", "command": "npm run test:performance", "owns": ["src/api/**", "performance/**"] }
+  ]
+}

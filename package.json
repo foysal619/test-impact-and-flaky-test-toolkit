@@ -1,0 +1,16 @@
+{
+  "name": "@foysal619/test-impact-toolkit",
+  "version": "1.0.0",
+  "description": "Deterministic changed-file test selection, duration-aware sharding, and flaky-test release evidence.",
+  "type": "module",
+  "bin": { "test-impact": "bin/test-impact.mjs" },
+  "exports": "./src/core.mjs",
+  "scripts": {
+    "check": "node --check src/core.mjs && node --check bin/test-impact.mjs && node --check dist/index.js",
+    "test": "node tests/core.test.mjs",
+    "example": "node bin/test-impact.mjs --config examples/quality-map.json --changed src/api/users.ts,src/shared/auth.ts --durations examples/durations.json --shards 2"
+  },
+  "engines": { "node": ">=20" },
+  "keywords": ["test-impact-analysis", "flaky-tests", "github-actions", "quality-engineering", "test-sharding"],
+  "license": "MIT"
+}
